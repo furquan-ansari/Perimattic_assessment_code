@@ -56,6 +56,25 @@ app.get('/api_entries', async (req, res) => {
   }
 });
 
+// Get all data in pagination form
+// app.get('/api_entries', async (req, res) => {
+//   try {
+//     const { limit = 10, offset = 0 } = req.query; // Default limit: 10, offset: 0
+
+//     // Retrieve the API entries with pagination
+//     const apiEntries = await APIEntry.findAll({
+//       limit: parseInt(limit),
+//       offset: parseInt(offset),
+//     });
+
+//     res.json(apiEntries);
+//   } catch (error) {
+//     console.error('Error while retrieving API entries:', error);
+//     res.status(500).json({ error: 'An error occurred while retrieving API entries.' });
+//   }
+// });
+
+
 app.get('/api_entries/:id', async (req, res) => {
   try {
     const apiEntry = await APIEntry.findByPk(req.params.id);
